@@ -1,6 +1,7 @@
 package com.example.recrutement.domain;
 
-public enum Civilité {
+public enum Civility {
+    Mr,
      M,
     Mme,
     Mlle

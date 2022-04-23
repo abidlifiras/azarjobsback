@@ -16,18 +16,25 @@ public class Membre extends user{
     @Column(name="CV")
     private byte[] CV;
 
-    @Column(name="civilité")
-    private Civilité civilité;
+    @Column(name="civility")
+    private Civility civility;
+
+    public Membre(Long id, String username, String email, String password, String nom_prenom, Date date_naissance, byte[] CV, Civility civility) {
+        super(id, username, email, password, nom_prenom);
+        this.date_naissance = date_naissance;
+        this.CV = CV;
+        this.civility = civility;
+    }
 
     public Membre() {
         super();
     }
 
-    public Membre(Date date_naissance, byte[] CV, Civilité civilité) {
+    public Membre(Date date_naissance, byte[] CV, Civility civility) {
         super();
         this.date_naissance = date_naissance;
         this.CV = CV;
-        this.civilité = civilité;
+        this.civility = civility;
     }
 
     public Date getDate_naissance() {
@@ -46,11 +53,11 @@ public class Membre extends user{
         this.CV = CV;
     }
 
-    public Civilité getCivilité() {
-        return civilité;
+    public Civility getCivility() {
+        return civility;
     }
 
-    public void setCivilité(Civilité civilité) {
-        this.civilité = civilité;
+    public void setCivility(Civility civility) {
+        this.civility = civility;
     }
 }

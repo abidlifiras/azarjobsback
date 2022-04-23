@@ -56,7 +56,7 @@ public class MembreControl {
                     employee.setEmail(c.getEmail());
                     employee.setPassword(c.getPassword());
                     employee.setCV(c.getCV());
-                    employee.setCivilité(c.getCivilité());
+                    employee.setCivility(c.getCivility());
                     return membreRepo.save(employee);
                 })
                 .orElseGet(() -> {
