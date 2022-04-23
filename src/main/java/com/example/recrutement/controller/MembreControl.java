@@ -30,12 +30,12 @@ public class MembreControl {
         return  membreRepo.findAll();
     }
 
-    //affiche un compte selon id
+    //affiche un compte selon email
 
-    @GetMapping(path="/{username}")
+    @GetMapping(path="/{email}")
 
-    public ResponseEntity<Membre> findByName(@PathVariable("username") String name) {
-        Optional<Membre> resultat =  membreRepo.findByUsername(name);
+    public ResponseEntity<Membre> findByEmail(@PathVariable("email") String email) {
+        Optional<Membre> resultat =  membreRepo.findByEmail(email);
         if (((Optional<?>) resultat).isPresent())
             return new ResponseEntity<>(resultat.get(), HttpStatus.OK);
         else

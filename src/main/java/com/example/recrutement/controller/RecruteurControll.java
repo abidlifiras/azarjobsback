@@ -23,10 +23,19 @@ public class RecruteurControll {
     public RecruteurControll(RecruteurRepo recruteurRepo) {
         this.recruteurRepo = recruteurRepo;
     }
-    @GetMapping(path="")
 
+    @GetMapping(path="")
     public List<Recruteur> touslescomptes()  {
         return  recruteurRepo.findAll();
+    }
+
+    @GetMapping(path="/{email}")
+    public ResponseEntity<Membre> findByEmail(@PathVariable("email") String email) {
+        Optional<Membre> resultat =  recruteurRepo.findByEmail(email);
+        if (((Optional<?>) resultat).isPresent())
+            return new ResponseEntity<>(resultat.get(), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //ajout compte
