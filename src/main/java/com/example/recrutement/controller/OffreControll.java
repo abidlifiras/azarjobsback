@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*" )
 @RestController
-@RequestMapping(path="/jobs ")
+@RequestMapping(path="/jobs")
 public class OffreControll {
 
     @Autowired
@@ -29,9 +29,9 @@ public class OffreControll {
     }
     //affiche par titre
 
-    @RequestMapping(value = "/{titre}", method = RequestMethod.GET)
-    public ResponseEntity<Offre> findByTitre(@PathVariable("titre") String id) {
-        Optional<Offre> resultat = offreRepo.findByTitre(id);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Offre> findById(@PathVariable("id") int id) {
+        Optional<Offre> resultat = offreRepo.findById(id);
         if (resultat.isPresent())
             return new ResponseEntity<>(resultat.get(), HttpStatus.OK);
         else

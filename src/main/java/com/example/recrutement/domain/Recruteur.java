@@ -11,20 +11,19 @@ import java.io.Serializable;
 @Entity
 @Table(name="recruteur")
 public class Recruteur extends user {
+    @Column(name="gov")
+    private String  gov;
+
 
     @Column(name="telephone")
     private long tel;
 
-    @Column(name="adress    ")
+    @Column(name="adress")
     private String adress;
 
 
     @Column(name="description")
     private String description;
-
-
-    @Column(name="gov")
-    private String  gov;
 
 
     @Column(name="sector")
@@ -43,12 +42,8 @@ public class Recruteur extends user {
         this.sector = sector;
     }
 
-    public Recruteur(long tel, String adress, String description, String gov, String sector) {
-        this.tel = tel;
-        this.adress = adress;
-        this.description = description;
-        this.gov = gov;
-        this.sector = sector;
+    public Recruteur(Long id, String username, String email, String password, String nom_prenom) {
+        super(id, username, email, password, nom_prenom);
     }
 
     public void setAdress(String adress) {

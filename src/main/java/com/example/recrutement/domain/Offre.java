@@ -30,11 +30,35 @@ public class Offre {
     @Column(name="levelStudy")
     private String level;
 
+    public Recruteur getRecruteur() {
+        return recruteur;
+    }
+
+    public void setRecruteur(Recruteur recruteur) {
+        this.recruteur = recruteur;
+    }
+
     @Column(name="requirement")
     private String requirement;
 
     @Column(name="tags")
     private String tags;
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    @Column(name="salary")
+    private String salary;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "recruteur_id    ", referencedColumnName = "id")
+    private Recruteur recruteur;
+
 
     public Offre() {
         super();
@@ -50,6 +74,20 @@ public class Offre {
         this.level = level;
         this.requirement = requirement;
         this.tags = tags;
+    }
+
+    public Offre(int id, String titre, String description, Date creationDate, Date esperationDate, String type, String level, String requirement, String tags, String salary, Recruteur recruteur) {
+        this.id = id;
+        this.titre = titre;
+        Description = description;
+        this.creationDate = creationDate;
+        this.esperationDate = esperationDate;
+        this.type = type;
+        this.level = level;
+        this.requirement = requirement;
+        this.tags = tags;
+        this.salary = salary;
+        this.recruteur = recruteur;
     }
 
     public int getId() {

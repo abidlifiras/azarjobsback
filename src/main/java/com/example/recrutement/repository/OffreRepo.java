@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface OffreRepo extends JpaRepository<Offre,Integer> {
         Optional<Offre> findByTitre(String titre);
+        Optional<Offre> findById(int id);
 }
