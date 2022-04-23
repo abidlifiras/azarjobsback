@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*" )
 @RestController
-@RequestMapping(path="/Membre")
+@RequestMapping(path="/users")
 public class MembreControl {
 
     @Autowired
@@ -24,7 +24,7 @@ public class MembreControl {
 
     //affiche liste des comptes condidats
 
-    @GetMapping(path="/affichecompte")
+    @GetMapping(path="")
 
     public List<Membre> touslescomptes()  {
         return  membreRepo.findAll();
@@ -43,12 +43,12 @@ public class MembreControl {
     }
     //ajout compte
 
-    @PostMapping(path="/ajout")
+    @PostMapping(path="")
     public  ResponseEntity<Membre> create( @RequestBody Membre c){
         membreRepo.save(c);
         return new ResponseEntity<Membre>(c, HttpStatus.CREATED);
     }
-    @PutMapping(path="/update/{username}")
+    @PutMapping(path="/{username}")
     public Membre update(@PathVariable("username") String name, @RequestBody Membre c){
 
         return membreRepo.findByUsername(name)

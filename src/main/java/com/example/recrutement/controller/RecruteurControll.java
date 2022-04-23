@@ -23,7 +23,7 @@ public class RecruteurControll {
     public RecruteurControll(RecruteurRepo recruteurRepo) {
         this.recruteurRepo = recruteurRepo;
     }
-    @GetMapping(path="/affichecompte")
+    @GetMapping(path="")
 
     public List<Recruteur> touslescomptes()  {
         return  recruteurRepo.findAll();
@@ -31,12 +31,12 @@ public class RecruteurControll {
 
     //ajout compte
 
-    @PostMapping(path="/ajout")
+    @PostMapping(path="")
     public  ResponseEntity<Recruteur> create( @RequestBody Recruteur c){
         recruteurRepo.save(c);
         return new ResponseEntity<Recruteur>(c, HttpStatus.CREATED);
     }
-    @PutMapping(path="/update")
+    @PutMapping(path="")
     public  ResponseEntity<Recruteur> update(@RequestBody Recruteur c){
 
         try {

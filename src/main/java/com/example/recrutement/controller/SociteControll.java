@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*" )
 @RestController
-@RequestMapping(path="/socite")
+@RequestMapping(path="/employeur")
 public class SociteControll {
 
     @Autowired
@@ -22,7 +22,7 @@ public class SociteControll {
     public SociteControll(SocieteRepo societeRepo) {
         this.societeRepo = societeRepo;
     }
-    @GetMapping(path="/affichesociete")
+    @GetMapping(path="")
 
     public List<Societe> getall()  {
         return  societeRepo.findAll();
@@ -31,12 +31,12 @@ public class SociteControll {
 
     //ajout compte
 
-    @PostMapping(path="/ajout")
+    @PostMapping(path="")
     public  ResponseEntity<Societe> create( @RequestBody Societe c){
         societeRepo.save(c);
         return new ResponseEntity<Societe>(c, HttpStatus.CREATED);
     }
-    @PutMapping(path="/update")
+    @PutMapping(path="")
     public  ResponseEntity<Societe> update(@RequestBody Societe c){
 
         try {

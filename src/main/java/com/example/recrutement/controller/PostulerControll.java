@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*" )
 @RestController
-@RequestMapping(path="/postulee")
+@RequestMapping(path="/postule")
 public class PostulerControll {
 
     @Autowired
@@ -22,18 +22,18 @@ public class PostulerControll {
         this.postulerRepo = postulerRepo;
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     public List<Postuler> getall()  {
         return  postulerRepo.findAll();
     }
 
-    @PostMapping("/ajout")
+    @PostMapping("")
     public ResponseEntity<Postuler> create(@RequestBody Postuler c) {
         postulerRepo.save(c);
         return new ResponseEntity<Postuler>(c, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/update")
+    @PutMapping(path = "")
     public  ResponseEntity<Postuler> update(@RequestBody Postuler c){
         try {
             postulerRepo.save(c);

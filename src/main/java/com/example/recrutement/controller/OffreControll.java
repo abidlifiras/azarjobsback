@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*" )
 @RestController
-@RequestMapping(path="/Offre")
+@RequestMapping(path="/jobs ")
 public class OffreControll {
 
     @Autowired
@@ -23,7 +23,7 @@ public class OffreControll {
         this.offreRepo = offreRepo;
     }
 
-    @GetMapping(path = "/afficheoffre")
+    @GetMapping(path = "")
     public List<Offre> touslesoffres() {
         return offreRepo.findAll();
     }
@@ -39,13 +39,13 @@ public class OffreControll {
     }
 
     //ajoutoffre
-    @PostMapping(path = "/ajoutoffre")
+    @PostMapping(path = "")
     public ResponseEntity<Offre> create(@RequestBody Offre c) {
         offreRepo.save(c);
         return new ResponseEntity<Offre>(c, HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/update/{titre}")
+    @PutMapping(path = "/{titre}")
     public Offre update(@PathVariable("titre") String name, @RequestBody Offre c) {
 
         return offreRepo.findByTitre(name)
